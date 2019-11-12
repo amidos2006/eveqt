@@ -1,10 +1,8 @@
 <h1 align="center">
-EvEqT: Evolvable Equation Tree Library
-</p>
-#
-
+	EvEqT: Evolvable Equation Tree Library
+</h1>
 <p align="center">
-<img src="eveqt_logo.png"/>
+	<img src="eveqt_logo.png"/>
 </p>
 <p align="center">
   <b>Current Framework Version: 0.8.0</b>
