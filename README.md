@@ -11,7 +11,10 @@
 **EvEqT** is a simple library to help researchers evolve equation trees that can be used in genetic programming. The library provide a lot of operators and some default operators to help with the genetic operators (crossover and mutation).
 
 ## Installation
-Copy the `eveqtree` package from the `src` folder to your project `src` folder then you are ready to use the package check the [Usage](https://github.com/amidos2006/eveqt#usage) section.
+There is more than one way to use that project:
+- Copy the [`eveqt`](https://github.com/amidos2006/eveqt/tree/master/src/eveqt) package from the [`src`](https://github.com/amidos2006/eveqt/tree/master/src) folder to your project `src` folder then you are ready to use the package check the [Usage](https://github.com/amidos2006/eveqt#usage) section.
+- Add [`eveqt.jar`]() that can be found in [`lib`]() folder as a dependency to your project
+- Add the current project as a dependency project to yours
 
 ## Usage
 You can check `Test.java` file for a full example on most of the functionalities that are available by **EvEqT**. Here is an example for couple of basic usages of **EvEqT**.
@@ -105,12 +108,12 @@ public String toString() {
 	...
 }
 ```
-make sure that you remember the `<operator-name>` because you will need to add it into two other places in the `EquationParser` class in `eveqtree` package:
+make sure that you remember the `<operator-name>` because you will need to add it into two other places in the `EquationParser` class in `eveqt` package:
 - The first location is to add <operator-name> to `unaryOperator` arraylist at the beginning of the class
 - The second location is to add it as a case in the switch statement in `getUnaryOperator` function in the middle of the class
 
 ## Adding new Binary Operator
-You need to create a class in `eveqtree.operators.binary` for your new operator where it will be extending `BinaryOperator` class. That class need to implements the following functions:
+You need to create a class in `eveqt.operators.binary` for your new operator where it will be extending `BinaryOperator` class. That class need to implements the following functions:
 ```java
 /**
  * calculate the result of the operator using the values coming from the children node
@@ -130,7 +133,7 @@ public String toString() {
 	...
 }
 ```
-make sure that you remember the `<operator-name>` because you will need to add it into two other places in the `EquationParser` class in `eveqtree` package:
+make sure that you remember the `<operator-name>` because you will need to add it into two other places in the `EquationParser` class in `eveqt` package:
 - The first location is to add <operator-name> to `binaryOperator` arraylist at the beginning of the class
 - The second location is to add it as a case in the switch statement in `getBinaryOperator` function in the middle of the class
 
