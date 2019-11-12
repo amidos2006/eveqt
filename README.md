@@ -1,3 +1,7 @@
+<center>
+<img src="eveqt_logo.png"/>
+</center>
+
 # EvEqT: Evolvable Equation Tree Library
 **EvEqT** is a simple library to help researchers evolve equation trees that can be used in genetic programming. The library provide a lot of operators and some default operators to help with the genetic operators (crossover and mutation).
 
@@ -12,7 +16,7 @@ You can check `Test.java` file for a full example on most of the functionalities
 // constValues hashset contains all the possible constants to be used by the system
 // if you want to generate that constValues quickly, try using EvEqT.generateConstants(20, 1000);
 EquationParser parser = new EquationParser(new Random(), varNames, constValues);
-// You could the parser object to parse an equation you had written 
+// You could the parser object to parse an equation you had written
 // (make sure it is a correct equation or the system will throw exceptions at you)
 EquationNode handEquation = parser.parse("sub(mul(add(jump, sub(log(6), 20)),dash),attack)");
 // Or you could send the parser object to EvEqT helper functions to generate a random equation tree
@@ -79,7 +83,7 @@ EquationNode crossEquation = EvEqT.crossoverTrees(parser, equation1, equation2);
 You need to create a class in `eveqtree.operators.unary` for your new operator where it will be extending `UnaryOperator` class. That class need to implements the following functions:
 ```java
 /**
- * calculate the result of the operator using the value coming from the child node 
+ * calculate the result of the operator using the value coming from the child node
  * this.child.evaluate(variables)
  **/
 @Override
@@ -88,7 +92,7 @@ public double evaluate(HashMap<String, Double> variables) {
 }
 
 /**
- * return the string format of the equation, the format has to be 
+ * return the string format of the equation, the format has to be
  * "<operator-name>" + "(" + this.child.toString() + ")"
  **/
 @Override
@@ -104,7 +108,7 @@ make sure that you remember the `<operator-name>` because you will need to add i
 You need to create a class in `eveqtree.operators.binary` for your new operator where it will be extending `BinaryOperator` class. That class need to implements the following functions:
 ```java
 /**
- * calculate the result of the operator using the values coming from the children node 
+ * calculate the result of the operator using the values coming from the children node
  * this.left.evaluate(variables) and this.right.evaluate(variables)
  **/
 @Override
@@ -113,7 +117,7 @@ public double evaluate(HashMap<String, Double> variables) {
 }
 
 /**
- * return the string format of the equation, the format has to be 
+ * return the string format of the equation, the format has to be
  * "<operator-name>" + "(" + this.left.toString() + "," + this.right.toString() + ")"
  **/
 @Override
