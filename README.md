@@ -1,6 +1,8 @@
 <h1 align="center">
 EvEqT: Evolvable Equation Tree Library
 </p>
+#
+
 <p align="center">
 <img src="eveqt_logo.png"/>
 </p>
