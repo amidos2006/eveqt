@@ -1,8 +1,14 @@
-<center>
+<h1 align="center">
+EvEqT: Evolvable Equation Tree Library
+</p>
+<p align="center">
 <img src="eveqt_logo.png"/>
-</center>
+</p>
+<p align="center">
+  <b>Current Framework Version: 0.8.0</b>
+</p>
 
-# EvEqT: Evolvable Equation Tree Library
+#
 **EvEqT** is a simple library to help researchers evolve equation trees that can be used in genetic programming. The library provide a lot of operators and some default operators to help with the genetic operators (crossover and mutation).
 
 ## Installation
