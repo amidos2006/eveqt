@@ -13,7 +13,7 @@
 ## Installation
 There is more than one way to use that project:
 - Copy the [`eveqt`](https://github.com/amidos2006/eveqt/tree/master/src/eveqt) package from the [`src`](https://github.com/amidos2006/eveqt/tree/master/src) folder to your project `src` folder.
-- Add [`eveqt.jar`]() that can be found in [`build`]() folder as a dependency to your project.
+- Add [`eveqt.jar`]() that can be found in [`build`](https://github.com/amidos2006/eveqt/tree/master/build) folder as a dependency to your project.
 
 Now you are ready to use the package check the [Usage](https://github.com/amidos2006/eveqt#usage) section
 
