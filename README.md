@@ -12,9 +12,9 @@
 
 ## Installation
 There is more than one way to use that project:
-- Copy the [`eveqt`](https://github.com/amidos2006/eveqt/tree/master/src/eveqt) package from the [`src`](https://github.com/amidos2006/eveqt/tree/master/src) folder to your project `src` folder then you are ready to use the package check the [Usage](https://github.com/amidos2006/eveqt#usage) section.
-- Add [`eveqt.jar`]() that can be found in [`lib`]() folder as a dependency to your project
-- Add the current project as a dependency project to yours
+- Copy the [`eveqt`](https://github.com/amidos2006/eveqt/tree/master/src/eveqt) package from the [`src`](https://github.com/amidos2006/eveqt/tree/master/src) folder to your project `src` folder.
+- Add [`eveqt.jar`]() that can be found in [`lib`]() folder as a dependency to your project.
+- Create a project for the current library then add that project as a dependency to your project.
 
 ## Usage
 You can check `Test.java` file for a full example on most of the functionalities that are available by **EvEqT**. Here is an example for couple of basic usages of **EvEqT**.
@@ -88,7 +88,7 @@ EquationNode crossEquation = EvEqT.crossoverTrees(parser, equation1, equation2);
 	- mix two different equation trees
 
 ## Adding new Unary Operator
-You need to create a class in `eveqtree.operators.unary` for your new operator where it will be extending `UnaryOperator` class. That class need to implements the following functions:
+You need to create a class in `eveqt.operators.unary` for your new operator where it will be extending `UnaryOperator` class. That class need to implements the following functions:
 ```java
 /**
  * calculate the result of the operator using the value coming from the child node
