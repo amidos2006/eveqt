@@ -11,7 +11,7 @@
 **EvEqT** is a simple library to help researchers evolve equation trees that can be used in genetic programming. The library provide a lot of operators and some default operators to help with the genetic operators (crossover and mutation).
 
 ## Installation
-Copy the `eveqtree` package from the `src` folder to your project `src` folder then you are ready to use the package check the [Usage](https://github.com/amidos2006/eveq-tree#usage) section.
+Copy the `eveqtree` package from the `src` folder to your project `src` folder then you are ready to use the package check the [Usage](https://github.com/amidos2006/eveqt#usage) section.
 
 ## Usage
 You can check `Test.java` file for a full example on most of the functionalities that are available by **EvEqT**. Here is an example for couple of basic usages of **EvEqT**.
@@ -136,7 +136,7 @@ make sure that you remember the `<operator-name>` because you will need to add i
 
 
 ## Contributing
-Bug reports and pull requests are welcome on GitHub at [https://github.com/amidos2006/gym-pcgrl](https://github.com/amidos2006/gym-pcgrl).
+Bug reports and pull requests are welcome on GitHub at [https://github.com/amidos2006/eveqt](https://github.com/amidos2006/eveqt).
 
 ## License
 This code is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
