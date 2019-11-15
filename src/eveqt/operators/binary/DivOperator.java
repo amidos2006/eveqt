@@ -15,6 +15,9 @@ public class DivOperator extends BinaryOperator{
 	if(rightValue == 0) {
 	    return 0;
 	}
+	if(this.left.checkSimilarity(this.right)) {
+	    return 1;
+	}
 	return (int)(this.left.evaluate(variables)) / rightValue;
     }
     
@@ -26,6 +29,9 @@ public class DivOperator extends BinaryOperator{
     @Override
     public boolean isConstant() {
 	if(this.right.isConstant() && this.right.evaluate(null) == 0) {
+	    return true;
+	}
+	if(this.left.checkSimilarity(this.right)) {
 	    return true;
 	}
 	return super.isConstant();

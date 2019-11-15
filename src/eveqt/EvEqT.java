@@ -369,21 +369,21 @@ public class EvEqT {
 	if(value < 0.25) {
 	    value += 0.25;
 	    EquationNode newNode = changeConstant(parser, eq);
-	    if(!newNode.getSimilarity(eq)) {
+	    if(!newNode.checkSimilarity(eq)) {
 		return newNode;
 	    }
 	}
 	if(value < 0.5) {
 	    value += 0.25;
 	    EquationNode newNode = changeVariable(parser, eq);
-	    if(!newNode.getSimilarity(eq)) {
+	    if(!newNode.checkSimilarity(eq)) {
 		return newNode;
 	    }
 	}
 	if(value < 0.75){
 	    value += 0.25;
 	    EquationNode newNode = changeUnary(parser, eq);
-	    if(!newNode.getSimilarity(eq)) {
+	    if(!newNode.checkSimilarity(eq)) {
 		return newNode;
 	    }
 	}

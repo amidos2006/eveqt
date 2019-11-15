@@ -15,6 +15,9 @@ public class ModOperator extends BinaryOperator{
 	if(rightValue == 0) {
 	    return 0;
 	}
+	if(this.left.checkSimilarity(this.right)) {
+	    return 0;
+	}
 	return (int)(this.left.evaluate(variables)) % rightValue;
     }
 

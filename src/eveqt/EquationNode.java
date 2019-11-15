@@ -103,7 +103,7 @@ public abstract class EquationNode implements Cloneable  {
      * @param n the compared tree
      * @return true if they are identical and false otherwise
      */
-    public boolean getSimilarity(EquationNode n){
+    public boolean checkSimilarity(EquationNode n){
 	EquationNode[] children1 = this.getChildren();
 	EquationNode[] children2 = n.getChildren();
 	
@@ -114,7 +114,7 @@ public abstract class EquationNode implements Cloneable  {
 	    return false;
 	}
 	for(int i=0; i<children1.length; i++){
-	    if(!children1[i].getSimilarity(children2[i])){
+	    if(!children1[i].checkSimilarity(children2[i])){
 		return false;
 	    }
 	}
