@@ -173,7 +173,7 @@ public class EvEqT {
     public static EquationNode deleteNode(EquationParser parser, EquationNode eq) throws Exception{
 	EquationNode clone = (EquationNode)eq.clone();
 	int maxDepth = clone.getTreeDepth() - 1;
-	if(maxDepth < 0) {
+	if(maxDepth <= 0) {
 	    return clone;
 	}
 	int targetDepth = parser.getRandom().nextInt(maxDepth);
