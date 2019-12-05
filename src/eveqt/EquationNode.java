@@ -8,6 +8,10 @@ import java.util.HashMap;
  */
 public abstract class EquationNode implements Cloneable  {
     /**
+     * Smallest value used for division by zero and other operators
+     */
+    protected final double epsilon = 1e-8;
+    /**
      * The parent node to my current node
      */
     protected EquationNode parent;

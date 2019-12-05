@@ -11,11 +11,22 @@ public class PowerOperator extends BinaryOperator{
 
     @Override
     public double evaluate(HashMap<String, Double> variables) {
+	if(this.right.evaluate(variables) == 0) {
+	    return 1.0;
+	}
 	return Math.pow(this.left.evaluate(variables), this.right.evaluate(variables));
     }
 
     @Override
     public String toString() {
 	return "pow(" + this.left.toString() + "," + this.right.toString() + ")";
+    }
+    
+    @Override
+    public boolean isConstant() {
+	if(this.right.isConstant() && this.right.evaluate(null) == 0) {
+	    return true;
+	}
+	return super.isConstant();
     }
 }
