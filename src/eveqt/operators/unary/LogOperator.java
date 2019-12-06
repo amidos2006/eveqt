@@ -12,10 +12,10 @@ public class LogOperator extends UnaryOperator{
     @Override
     public double evaluate(HashMap<String, Double> variables) {
 	double value = this.child.evaluate(variables);
-	if(value == 0) {
-	    value = this.epsilon;
+	if(value <= 0) {
+	    return -this.infinityValue;
 	}
-	return Math.log(Math.abs(value));
+	return Math.log(value);
     }
 
     @Override

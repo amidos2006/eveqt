@@ -176,8 +176,6 @@ public class EquationParser {
 	    return new AddOperator(left, right);
 	case "divide":
 	    return new DivideOperator(left, right);
-	case "div":
-	    return new DivOperator(left, right);
 	case "eq":
 	    return new EqualOperator(left, right);
 	case "lg":

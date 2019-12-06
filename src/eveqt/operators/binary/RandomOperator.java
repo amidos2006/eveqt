@@ -59,6 +59,9 @@ public class RandomOperator extends BinaryOperator {
     
     @Override
     public boolean isConstant() {
+	if(this.left.isConstant() && this.right.isConstant() && this.left.evaluate(null) - this.right.evaluate(null) == 0) {
+	    return true;
+	}
 	return false;
     }
 }

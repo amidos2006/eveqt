@@ -11,16 +11,16 @@ public class ModOperator extends BinaryOperator{
 
     @Override
     public double evaluate(HashMap<String, Double> variables) {
-	int rightValue = (int)(this.right.evaluate(variables));
-	if(rightValue == 0) {
-	    return 0;
-	}
 	if(this.left.checkSimilarity(this.right)) {
-	    return 0;
+	    return 1;
 	}
-	return (int)(this.left.evaluate(variables)) % rightValue;
+	double rightValue = this.right.evaluate(variables);
+	if(rightValue == 0) {
+	    return this.nanValue;
+	}
+	return (int)(this.left.evaluate(variables)) % (int)(rightValue);
     }
-
+    
     @Override
     public String toString() {
 	return "mod(" + this.left.toString() + "," + this.right.toString() + ")";
@@ -28,6 +28,9 @@ public class ModOperator extends BinaryOperator{
     
     @Override
     public boolean isConstant() {
+	if(this.left.checkSimilarity(this.right)) {
+	    return true;
+	}
 	if(this.right.isConstant() && this.right.evaluate(null) == 0) {
 	    return true;
 	}

@@ -14,6 +14,9 @@ public class PowerOperator extends BinaryOperator{
 	if(this.right.evaluate(variables) == 0) {
 	    return 1.0;
 	}
+	if(Math.abs(this.right.evaluate(variables)) < 1 && this.left.evaluate(variables) < 0) {
+	    return this.nanValue;
+	}
 	return Math.pow(this.left.evaluate(variables), this.right.evaluate(variables));
     }
 

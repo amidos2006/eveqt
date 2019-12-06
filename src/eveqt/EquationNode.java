@@ -8,9 +8,13 @@ import java.util.HashMap;
  */
 public abstract class EquationNode implements Cloneable  {
     /**
-     * Smallest value used for division by zero and other operators
+     * definition of infinity for safe operators
      */
-    protected final double epsilon = 1e-8;
+    protected final double infinityValue = 1e10;
+    /**
+     * definition of nan for safe operators
+     */
+    protected final double nanValue = 0;
     /**
      * The parent node to my current node
      */
