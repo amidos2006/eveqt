@@ -54,6 +54,14 @@ EquationNode addEquation = EvEqT.insertNode(parser, equation, 5);
 EquationNode crossEquation = EvEqT.crossoverTrees(parser, equation1, equation2);
 ```
 
+The system uses safe operators where it will return a fixed value for any `NaN` value and big fixed value for any `Infinity` or `-Infinity` values. The default `1e10` for `Infinity`, `-1e10` for `-Infinity` and `0` for `NaN`. If you would like to change these values to any other value, use the following code:
+```java
+// change the standard infinity value
+EquationNode.infinityValue = 1e8;
+// change the nan standard value
+EquationNode.nanValue = 1;
+```
+
 ## Features
 - Ten different unary node operators
 	- `abs`: calculates the absolute value of the child node
@@ -70,7 +78,6 @@ EquationNode crossEquation = EvEqT.crossoverTrees(parser, equation1, equation2);
 	- `add`: adds the values of the left and the right children
 	- `sub`: subtracts the value of the right child from the left child
 	- `divide`: divides the value of the right child from the left child
-	- `div`: calculates the integer division of the right child from the left child
 	- `mod`: calculates the modulus of the right child from the left child
 	- `eq`: checks if both values are equal (1) or not (0)
 	- `lg`: checks if the left node value larger than the right node value (1) or otherwise (0)

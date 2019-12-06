@@ -13,7 +13,7 @@ public class LogOperator extends UnaryOperator{
     public double evaluate(HashMap<String, Double> variables) {
 	double value = this.child.evaluate(variables);
 	if(value <= 0) {
-	    return -this.infinityValue;
+	    return -EquationNode.infinityValue;
 	}
 	return Math.log(value);
     }

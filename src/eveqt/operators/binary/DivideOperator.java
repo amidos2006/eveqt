@@ -16,7 +16,7 @@ public class DivideOperator extends BinaryOperator{
 	}
 	double rightValue = this.right.evaluate(variables);
 	if(rightValue == 0) {
-	    return Math.signum(this.left.evaluate(null)) * this.infinityValue;
+	    return Math.signum(this.left.evaluate(null)) * EquationNode.infinityValue;
 	}
 	return this.left.evaluate(variables) / rightValue;
     }

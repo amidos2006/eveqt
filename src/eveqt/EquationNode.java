@@ -10,11 +10,11 @@ public abstract class EquationNode implements Cloneable  {
     /**
      * definition of infinity for safe operators
      */
-    protected final double infinityValue = 1e10;
+    public static double infinityValue = 1e10;
     /**
      * definition of nan for safe operators
      */
-    protected final double nanValue = 0;
+    public static double nanValue = 0;
     /**
      * The parent node to my current node
      */
