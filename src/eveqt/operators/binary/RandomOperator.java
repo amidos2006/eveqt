@@ -6,24 +6,18 @@ import java.util.Random;
 import eveqt.EquationNode;
 
 public class RandomOperator extends BinaryOperator {
-    public final static int INTEGER = 0;
-    public final static int FLOAT = 1;
-    
     private Random random;
-    private int type;
     
-    public RandomOperator(Random random, int type, EquationNode left, EquationNode right) {
+    public RandomOperator(Random random, EquationNode left, EquationNode right) {
 	super(left, right);
 	
 	this.random = random;
-	this.type = type;
     }
     
     @Override
     public Object clone() throws CloneNotSupportedException {
 	RandomOperator clone = (RandomOperator) super.clone();
 	clone.random = this.random;
-	clone.type = this.type;
 	return clone;
     }
 
@@ -36,12 +30,6 @@ public class RandomOperator extends BinaryOperator {
 	    highBound = lowBound;
 	    lowBound = temp;
 	}
-	if(type == RandomOperator.INTEGER){
-	    if((int)(highBound - lowBound) <= 0) {
-		    return (int)lowBound;
-	    }
-	    return random.nextInt((int)(highBound - lowBound)) + lowBound;
-	}
 	if(highBound - lowBound <= 0) {
 	    return lowBound;
 	}
@@ -50,11 +38,7 @@ public class RandomOperator extends BinaryOperator {
 
     @Override
     public String toString() {
-	String stringType = "randFloat";
-	if(type == RandomOperator.INTEGER){
-	    stringType = "randInt";
-	}
-	return stringType + "(" + left.toString() + "," + right.toString() + ")";
+	return "rand(" + left.toString() + "," + right.toString() + ")";
     }
     
     @Override

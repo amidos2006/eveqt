@@ -86,8 +86,7 @@ EquationNode.nanValue = 1;
 	- `min`: returns the minimum value of both the children values
 	- `mul`: multiplies both children values
 	- `pow`: calculates the left child value to the power of the right child value
-	- `randInt`: calculates a random integer number between the left child value to the right child value
-	- `randFloat`: calculates a random float number between the left child value to the right child value
+	- `rand`: calculates a random double number between the left child value to the right child value
 - Genetic modification functionalities
 	- generate a random tree
 	- delete a random node from a tree

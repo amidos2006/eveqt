@@ -18,7 +18,7 @@ public class EquationParser {
      * List of all the binary operators that can be used by the system
      */
     public final String[] binaryOperator = new String[]{"add", "sub", "divide", "pow", "eq", "lg", "ls", "max", "min", 
-		"mod", "mul", "pow", "randInt", "randFloat"};
+		"mod", "mul", "pow", "rand"};
     /**
      * List of all the unary operators that can be used by the system
      */
@@ -194,10 +194,8 @@ public class EquationParser {
 	    return new PowerOperator(left, right);
 	case "sub":
 	    return new SubtractOperator(left, right);
-	case "randInt":
-	    return new RandomOperator(this.rnd, RandomOperator.INTEGER, left, right);
-	case "randFloat":
-	    return new RandomOperator(this.rnd, RandomOperator.FLOAT, left, right);
+	case "rand":
+	    return new RandomOperator(this.rnd, left, right);
 	}
 	return null;
     }
