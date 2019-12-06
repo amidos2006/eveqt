@@ -16,7 +16,7 @@ public class Test {
 	    add("attack"); 
 	}};
 	//Additional Terminals used in creating random equations
-	ArrayList<String> additionalTerminals = new ArrayList<String>(){{add("randFloat(0,1)");}};
+	ArrayList<String> additionalTerminals = new ArrayList<String>(){{add("rand(0,1)");}};
 	//Construct the parser object that parse and check equations
 	EquationParser parser = new EquationParser(new Random(), varNames, constValues);
 	
