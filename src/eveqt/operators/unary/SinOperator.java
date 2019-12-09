@@ -11,11 +11,11 @@ public class SinOperator extends UnaryOperator{
 
     @Override
     public double evaluate(HashMap<String, Double> variables) {
-	return Math.cos(this.child.evaluate(variables));
+	return Math.sin(this.child.evaluate(variables));
     }
 
     @Override
     public String toString() {
-	return "cos(" + this.child.toString() + ")";
+	return "sin(" + this.child.toString() + ")";
     }
 }

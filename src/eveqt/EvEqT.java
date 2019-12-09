@@ -502,6 +502,12 @@ public class EvEqT {
 	EquationNode clone1 = (EquationNode)eq1.clone();
 	EquationNode clone2 = (EquationNode)eq2.clone();
 	Random rnd = parser.getRandom();
+	if(Math.min(eq1.getTreeDepth(), eq2.getTreeDepth()) <= 1) {
+	    if(rnd.nextBoolean()) {
+		return clone1;
+	    }
+	    return clone2;
+	}
 	int targetDepth = rnd.nextInt(Math.min(eq1.getTreeDepth(), eq2.getTreeDepth())-1) + 1;
 	ArrayList<EquationNode> nodes1 = getEquationsAtDepth(clone1, 0, targetDepth);
 	ArrayList<EquationNode> nodes2 = getEquationsAtDepth(clone2, 0, targetDepth);

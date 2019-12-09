@@ -14,7 +14,7 @@ public class InvOperator extends UnaryOperator{
 	if(this.child.evaluate(variables) == 0) {
 	    return 0;
 	}
-	return 1.0/this.child.evaluate(variables);
+	return this.clamp(1.0/this.child.evaluate(variables));
     }
 
     @Override

@@ -14,11 +14,7 @@ public class DivideOperator extends BinaryOperator{
 	if(this.left.checkSimilarity(this.right)) {
 	    return 1;
 	}
-	double rightValue = this.right.evaluate(variables);
-	if(rightValue == 0) {
-	    return Math.signum(this.left.evaluate(null)) * EquationNode.infinityValue;
-	}
-	return this.left.evaluate(variables) / rightValue;
+	return this.clamp(this.left.evaluate(variables) / this.right.evaluate(variables));
     }
     
     @Override

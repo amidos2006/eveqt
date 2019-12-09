@@ -11,13 +11,15 @@ public class PowerOperator extends BinaryOperator{
 
     @Override
     public double evaluate(HashMap<String, Double> variables) {
-	if(this.right.evaluate(variables) == 0) {
+	double right = this.right.evaluate(variables);
+	if(right == 0) {
 	    return 1.0;
 	}
-	if(Math.abs(this.right.evaluate(variables)) < 1 && this.left.evaluate(variables) < 0) {
+	double left = this.left.evaluate(variables);
+	if(Math.abs(right) < 1 && left < 0) {
 	    return EquationNode.nanValue;
 	}
-	return Math.pow(this.left.evaluate(variables), this.right.evaluate(variables));
+	return this.clamp(Math.pow(left, right));
     }
 
     @Override

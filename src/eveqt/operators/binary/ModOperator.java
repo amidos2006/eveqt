@@ -18,7 +18,7 @@ public class ModOperator extends BinaryOperator{
 	if(rightValue == 0) {
 	    return EquationNode.nanValue;
 	}
-	return (int)(this.left.evaluate(variables)) % (int)(rightValue);
+	return this.left.evaluate(variables) % rightValue;
     }
     
     @Override

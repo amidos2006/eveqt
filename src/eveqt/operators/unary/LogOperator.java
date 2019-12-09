@@ -15,7 +15,7 @@ public class LogOperator extends UnaryOperator{
 	if(value <= 0) {
 	    return -EquationNode.infinityValue;
 	}
-	return Math.log(value);
+	return this.clamp(Math.log(value));
     }
 
     @Override

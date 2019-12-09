@@ -11,7 +11,7 @@ public class AddOperator extends BinaryOperator{
 
     @Override
     public double evaluate(HashMap<String, Double> variables) {
-	return this.left.evaluate(variables) + this.right.evaluate(variables);
+	return this.clamp(this.left.evaluate(variables) + this.right.evaluate(variables));
     }
     
     @Override

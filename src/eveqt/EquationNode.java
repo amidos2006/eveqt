@@ -2,13 +2,15 @@ package eveqt;
 
 import java.util.HashMap;
 
+import eveqt.terminals.TerminalNode;
+
 /**
  * The base class to all the equation nodes
  * @author AhmedKhalifa
  */
 public abstract class EquationNode implements Cloneable  {
     /**
-     * definition of infinity for safe operators
+     * definition of max value for safe operators
      */
     public static double infinityValue = 1e10;
     /**
@@ -19,6 +21,15 @@ public abstract class EquationNode implements Cloneable  {
      * The parent node to my current node
      */
     protected EquationNode parent;
+    
+    /**
+     * Clamp value to be in range of infinity
+     * @param value input value to be clamped
+     * @return the value between -infinity and infinity
+     */
+    protected double clamp(double value) {
+	return Math.min(infinityValue, Math.max(-infinityValue, value));
+    }
     
     /**
      * get a clone of the current tree
@@ -120,6 +131,9 @@ public abstract class EquationNode implements Cloneable  {
 	}
 	if(!this.getClass().equals(n.getClass())){
 	    return false;
+	}
+	if(this instanceof TerminalNode) {
+	    return ((TerminalNode)this).getValue() == ((TerminalNode)n).getValue();
 	}
 	for(int i=0; i<children1.length; i++){
 	    if(!children1[i].checkSimilarity(children2[i])){

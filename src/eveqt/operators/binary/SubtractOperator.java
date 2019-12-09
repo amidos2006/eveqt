@@ -14,7 +14,7 @@ public class SubtractOperator extends BinaryOperator{
 	if(this.left.checkSimilarity(this.right)) {
 	    return 0;
 	}
-	return this.left.evaluate(variables) - this.right.evaluate(variables);
+	return this.clamp(this.left.evaluate(variables) - this.right.evaluate(variables));
     }
 
     @Override
