@@ -11,7 +11,7 @@ public class DivideOperator extends BinaryOperator{
 
     @Override
     public double evaluate(HashMap<String, Double> variables) {
-	if(this.left.checkSimilarity(this.right)) {
+	if(this.left.checkSimilarity(this.right) || this.left.evaluate(variables) == this.right.evaluate(variables)) {
 	    return 1;
 	}
 	return this.clamp(this.left.evaluate(variables) / this.right.evaluate(variables));
