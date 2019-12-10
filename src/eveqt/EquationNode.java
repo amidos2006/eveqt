@@ -133,7 +133,7 @@ public abstract class EquationNode implements Cloneable  {
 	    return false;
 	}
 	if(this instanceof TerminalNode) {
-	    return ((TerminalNode)this).getValue() == ((TerminalNode)n).getValue();
+	    return ((TerminalNode)this).getValue().equals(((TerminalNode)n).getValue());
 	}
 	for(int i=0; i<children1.length; i++){
 	    if(!children1[i].checkSimilarity(children2[i])){
