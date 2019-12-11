@@ -16,7 +16,7 @@ public class PowerOperator extends BinaryOperator{
 	    return 1.0;
 	}
 	double left = this.left.evaluate(variables);
-	if(Math.abs(right) < 1 && left < 0) {
+	if(Math.abs(right) % 1 > 0 && left < 0) {
 	    return EquationNode.nanValue;
 	}
 	return this.clamp(Math.pow(left, right));
