@@ -37,6 +37,24 @@ public class EquationParser {
      * A set of unique constants that is being used in the system
      */
     private HashSet<Double> constValues;
+    /**
+     * allow to approximate constants
+     */
+    private boolean closestConstant;
+    
+    /**
+     * Constructor for the parser class
+     * @param random random object to be used in all operations
+     * @param variableNames a set of all the variable names
+     * @param constantValues a set of all the constants
+     * @param allow for the parser to approximate values or not.
+     */
+    public EquationParser(Random random, HashSet<String> variableNames, HashSet<Double> constantValues, boolean closestConstant){
+	this.rnd = random;
+	this.varNames = variableNames;
+	this.constValues = constantValues;
+	this.closestConstant = closestConstant;
+    }
     
     /**
      * Constructor for the parser class
@@ -45,9 +63,7 @@ public class EquationParser {
      * @param constantValues a set of all the constants
      */
     public EquationParser(Random random, HashSet<String> variableNames, HashSet<Double> constantValues){
-	this.rnd = random;
-	this.varNames = variableNames;
-	this.constValues = constantValues;
+	this(random, variableNames, constantValues, true);
     }
     
     /**
@@ -100,6 +116,9 @@ public class EquationParser {
      * @return the closest defined constant to the input value
      */
     public double getClosestDouble(double value) {
+	if(!this.closestConstant) {
+	    return value;
+	}
 	double best=0;
 	double dist=Double.MAX_VALUE;	
 	for(Double v:this.constValues) {
@@ -118,7 +137,7 @@ public class EquationParser {
      * @return a terminal node that correspond to the input name
      */
     private EquationNode getTerminal(String name) throws Exception{
-	if(name.matches("^[\\-]?[0-9]+[\\.]?[0-9]*")){
+	if(name.matches("[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?")){
 	    return new ConstantNode(this.getClosestDouble(Double.parseDouble(name)));
 	}
 	else{

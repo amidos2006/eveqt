@@ -461,34 +461,19 @@ public class EvEqT {
      * get a new equation tree after simplifying any subtrees that contain only constant and operators
      * @param parser the parser object that have all the variable names and constants 
      * @param eq the current equation tree where a node need to be removed
-     * @param useDefinedConstants true if the new constants has to be selected from the defined constants and false otherwise
      * @return a new equation tree with all the constant nodes collapse to a single one
      */
-    public static EquationNode simplifyTree(EquationParser parser, EquationNode eq, boolean useDefinedConstants) throws Exception {
+    public static EquationNode simplifyTree(EquationParser parser, EquationNode eq) throws Exception {
 	if(eq.isConstant()) {
-	    double value = eq.evaluate(null);
-	    if (useDefinedConstants){
-		value = parser.getClosestDouble(value);
-	    }
-	    return new ConstantNode(value);
+	    return new ConstantNode(parser.getClosestDouble(eq.evaluate(null)));
 	}
 	EquationNode clone = (EquationNode) eq.clone();
 	EquationNode[] children = clone.getChildren();
 	for(int i=0; i<children.length; i++) {
-	    EquationNode newNode = simplifyTree(parser, children[i], useDefinedConstants);
+	    EquationNode newNode = simplifyTree(parser, children[i]);
 	    clone.setChild(i, newNode);
 	}
 	return clone;
-    }
-    
-    /**
-     * get a new equation tree after simplifying any subtrees that contain only constant and operators where userDefinedConstants is false
-     * @param parser the parser object that have all the variable names and constants 
-     * @param eq the current equation tree where a node need to be removed
-     * @return a new equation tree with all the constant nodes collapse to a single one
-     */
-    public static EquationNode simplifyTree(EquationParser parser, EquationNode eq) throws Exception {
-	return simplifyTree(parser, eq, false);
     }
 
     /**
