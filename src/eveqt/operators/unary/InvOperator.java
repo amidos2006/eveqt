@@ -11,10 +11,11 @@ public class InvOperator extends UnaryOperator{
 
     @Override
     public double evaluate(HashMap<String, Double> variables) {
-	if(this.child.evaluate(variables) == 0) {
+	double value = this.child.evaluate(variables);
+	if(value == 0) {
 	    return 0;
 	}
-	return this.clamp(1.0/this.child.evaluate(variables));
+	return this.clamp(1.0/value);
     }
 
     @Override
