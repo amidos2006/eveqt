@@ -118,6 +118,33 @@ public abstract class EquationNode implements Cloneable  {
     }
     
     /**
+     * get the number of nodes under the current node
+     * @return the number of nodes in the tree starting from the current node
+     */
+    public int getTreeNodeCount() {
+	EquationNode[] children = this.getChildren();
+	if(children.length == 0) {
+	    return 1;
+	}
+	int count = 0;
+	for(int i=0; i<children.length; i++){
+	    count += children[i].getTreeNodeCount();
+	}
+	return count + 1;
+    }
+    
+    /**
+     * Check if a certain string exists in the Tree can be used to check 
+     * if a certain variables exists in the tree
+     * @param input input string to be checked
+     * @return true if the string exists and false otherwise
+     */
+    public boolean checkVariableInTree(String input) {
+	String currentEquation = this.toString();
+	return currentEquation.indexOf(input) >= 0;
+    }
+    
+    /**
      * check if the current tree is similar to the input tree
      * @param n the compared tree
      * @return true if they are identical and false otherwise
