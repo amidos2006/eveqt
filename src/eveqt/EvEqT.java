@@ -48,7 +48,7 @@ public class EvEqT {
 	
 	EquationNode[] children = eq.getChildren();
 	for(EquationNode c:children) {
-	    results.addAll(getEquationsAtDepth(c, currentDepth+1, maxDepth));
+	    results.addAll(getEquationsWithLessDepth(c, currentDepth+1, maxDepth));
 	}
 	return results;
     } 
@@ -112,22 +112,19 @@ public class EvEqT {
     	ArrayList<String> constants = parser.getConstants();
 	Random rnd = parser.getRandom();
 	
-	if(maxDepth <= 0){
+	if(maxDepth <= 1){
 	    double value = rnd.nextDouble() ;
 	    if(value < constProb){
 		return constants.get(rnd.nextInt(constants.size()));
 	    }
-	    else{
-		return terminals.get(rnd.nextInt(terminals.size()));
-	    }
+	    return terminals.get(rnd.nextInt(terminals.size()));
 	}
 	
 	if(rnd.nextDouble() < unaryProb){
-	    return parser.getRandomOperator(true) + "(" + generateRandomStringEquation(parser, maxDepth - rnd.nextInt(maxDepth) - 1, addTerminals, constProb, unaryProb) + ")";
+	    return parser.getRandomOperator(true) + "(" + generateRandomStringEquation(parser, maxDepth - 1 - rnd.nextInt(maxDepth-1), addTerminals, constProb, unaryProb) + ")";
 	}
-	
-	return parser.getRandomOperator(false) + "(" + generateRandomStringEquation(parser, maxDepth - rnd.nextInt(maxDepth) - 1, addTerminals, constProb, unaryProb) + "," + 
-		generateRandomStringEquation(parser, maxDepth - rnd.nextInt(maxDepth) - 1, addTerminals, constProb, unaryProb) + ")";
+	return parser.getRandomOperator(false) + "(" + generateRandomStringEquation(parser, maxDepth - 1 - rnd.nextInt(maxDepth-1), addTerminals, constProb, unaryProb) + "," + 
+		generateRandomStringEquation(parser, maxDepth - 1 - rnd.nextInt(maxDepth-1), addTerminals, constProb, unaryProb) + ")";
     }
     
     /**
@@ -405,7 +402,7 @@ public class EvEqT {
      */
     public static EquationNode insertNode(EquationParser parser, EquationNode eq, int maxDepth, ArrayList<String> addTerminals, double constProb, double unaryProb) throws Exception {
 	EquationNode clone = (EquationNode) eq.clone();
-	ArrayList<EquationNode> allowedNodes = getEquationsWithLessDepth(clone, 0, maxDepth);
+	ArrayList<EquationNode> allowedNodes = getEquationsWithLessDepth(clone, 0, maxDepth-1);
 	if(allowedNodes.size() == 0) {
 	    return clone;
 	}
@@ -418,7 +415,7 @@ public class EvEqT {
 	}
 	else {
 	    newChild = parser.parse(parser.getRandomOperator(false) + "(" + 
-		    selected + "," + generateRandomStringEquation(parser, maxDepth-selected.getCurrentDepth(), addTerminals, constProb, unaryProb) + ")");
+		    selected + "," + generateRandomStringEquation(parser, maxDepth-1-selected.getCurrentDepth(), addTerminals, constProb, unaryProb) + ")");
 	}
 	if(parent == null) {
 	    return newChild;
