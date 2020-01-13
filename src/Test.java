@@ -32,7 +32,6 @@ public class Test {
 	EquationNode changeEquation = EvEqT.changeNode(parser, randomEquation);
 	//Add new node to the random equation
 	EquationNode addEquation = EvEqT.insertNode(parser, randomEquation, 5, additionalTerminals, 0.25, 0.5);
-	
 	//Mix two equations together (Crossover)
 	EquationNode crossEquation = EvEqT.crossoverTrees(parser, simpleEquation, randomEquation);
 	
